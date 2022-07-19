@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pluscode-deploy
+spec:
+  replicas: 3 #A
+  selector:
+    matchLabels:
+      app: pluscode
+  template:
+    metadata:
+      labels:
+        app: pluscode
+    spec:
+      containers:
+      - name: pluscode-container
+        image: docker.io/wdenniss/pluscode-demo:latest #B
+        readinessProbe:
+          initialDelaySeconds: 15
+          periodSeconds: 30
+          httpGet:
+            path: /readyz #A
+            port: 80
+            scheme: HTTP
+          timeoutSeconds: 2
+          failureThreshold: 1
+          successThreshold: 1
+          livenessProbe:
+            initialDelaySeconds: 30
+            periodSeconds: 30
+            httpGet:
+              path: /healthz #A
+              port: 80
+              scheme: HTTP
+            timeoutSeconds: 3
+            failureThreshold: 3 #B
+            successThreshold: 1

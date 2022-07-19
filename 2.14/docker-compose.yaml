@@ -1,0 +1,7 @@
+version: '1'
+services:
+web:
+build: ./Dockerfile #A
+# command: python3 server.py #B
+ports:
+- "8080:80" #C

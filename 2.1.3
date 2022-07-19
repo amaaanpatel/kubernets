@@ -1,0 +1,5 @@
+FROM ubuntu #A
+RUN apt-get update #B
+RUN apt-get install -y python3 #B
+COPY . /app #C
+WORKDIR /app #D
