@@ -14,8 +14,16 @@ docker ps // list docker processes
 
 docker stop CONTAINER_ID // stop docker container
 
-docker build . -t server_app; docker run -it -p 8080:80 server_app // build and run
+docker build . -t server_app; 
+docker run -it -p 8080:80 server_app // build and run
 
 docker container ls // list running containers
 
 docker exec -it CONTAINER_ID sh // get into the running container for debugging
+
+
+docker image ls //list the docker images 
+
+sudo docker build . -t amaanpatel56/amaanpatel:v7 // build docker image with tag
+
+ sudo docker push amaanpatel56/amaanpatel:v7 // push image to docker hub
