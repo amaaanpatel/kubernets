@@ -1,0 +1,21 @@
+docker ps -a // list containers
+
+docker system prune -a // clean all containers
+
+docker build . -t hello3 //build image
+
+docker run -it hello3 // run docker container
+
+docker run -it -p 8080:80 hello3 // run docker interactively exit by clt +c
+
+docker run -d -p 8080:80 hello3 // run docker in detached mode
+
+docker ps // list docker processes
+
+docker stop CONTAINER_ID // stop docker container
+
+docker build . -t server_app; docker run -it -p 8080:80 server_app // build and run
+
+docker container ls // list running containers
+
+docker exec -it CONTAINER_ID sh // get into the running container for debugging
